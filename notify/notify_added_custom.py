@@ -197,7 +197,11 @@ def get_rating_keys(TODAY, LASTDATE):
                 break
 
             start += count
-    return recent_lst
+    # Check for empty list.
+    if recent_lst:
+        return recent_lst
+    sys.stderr.write("Recently Added list: {0}.".format(recent_lst))
+    exit()
 
 
 def build_html(rating_key, height, width, pic_type):
